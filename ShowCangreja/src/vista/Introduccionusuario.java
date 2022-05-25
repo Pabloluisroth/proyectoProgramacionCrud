@@ -1,0 +1,83 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class Introduccionusuario extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+
+	
+	public Introduccionusuario() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setVisible(true);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nombre");
+		lblNewLabel_1.setBounds(27, 72, 45, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(108, 69, 96, 19);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Edad");
+		lblNewLabel_2.setBounds(230, 72, 45, 13);
+		contentPane.add(lblNewLabel_2);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(298, 69, 96, 19);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Altura");
+		lblNewLabel_3.setBounds(27, 128, 45, 13);
+		contentPane.add(lblNewLabel_3);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(108, 125, 96, 19);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("Peso");
+		lblNewLabel_4.setBounds(230, 128, 45, 13);
+		contentPane.add(lblNewLabel_4);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(298, 125, 96, 19);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Ubicacion");
+		lblNewLabel_5.setBounds(27, 182, 45, 13);
+		contentPane.add(lblNewLabel_5);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(108, 179, 96, 19);
+		contentPane.add(textField_5);
+		textField_5.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Introducir");
+		btnNewButton.setBounds(309, 178, 85, 21);
+		contentPane.add(btnNewButton);
+		
+		
+	}
+}
