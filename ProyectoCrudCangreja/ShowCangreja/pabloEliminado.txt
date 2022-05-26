@@ -1,0 +1,5 @@
+Nombre: pablo
+Edad: 65
+Altura: 175
+Peso: 35
+Ubicacion: sevilla

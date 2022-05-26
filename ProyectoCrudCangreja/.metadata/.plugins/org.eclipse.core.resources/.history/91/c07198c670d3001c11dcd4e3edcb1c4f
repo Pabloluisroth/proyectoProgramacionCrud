@@ -1,0 +1,15 @@
+package modelo;
+
+import bbdd.Conexion;
+import beans.Login;
+
+public class Logins {
+	
+	public void crearLogin(Login login) {
+		String usuario = login.getUsuario();
+		String contrasena = login.getContrasena();
+		
+		Conexion.ejecutarUpdate("INSERT INTO logins (usuario, contrasena) VALUES ('"+usuario+"', '"+contrasena+"');");
+	}
+
+}

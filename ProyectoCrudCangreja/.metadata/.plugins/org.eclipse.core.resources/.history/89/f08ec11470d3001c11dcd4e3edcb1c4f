@@ -1,0 +1,15 @@
+package modelo;
+
+import beans.Baneado;
+
+public class Baneados {
+	
+	public void crearBaneado(Baneado baneado) {
+		String nombre = baneado.getNombre();
+		int edad = baneado.getEdad();
+		int altura = baneado.getAltura();
+		int peso = baneado.getPeso();
+		String ubicacion = baneado.getUbicacion();
+	}
+
+}

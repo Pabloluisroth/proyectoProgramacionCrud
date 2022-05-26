@@ -1,0 +1,201 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import beans.Baneado;
+import controlador.Controlador;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JTabbedPane;
+import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JTable;
+import javax.swing.border.BevelBorder;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
+
+public class BanearUsuario extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+	private JTable table_1;
+	private JTable table_2;
+	private JTable table_3;
+	private JTable table_4;
+	private JTable table_5;
+	private JPanel panel;
+	private JScrollPane scrollPane;
+	private JTable table_6;
+	private JTable table_7;
+	private JLabel lblNewLabel_1;
+	private JTextField textNombre;
+	private JTextField textEdad;
+	private JTextField textAltura;
+	private JTextField textPeso;
+	private JTextField textUbicacion;
+
+
+	public BanearUsuario() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 616, 541);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setVisible(true);
+		
+		JLabel lblNewLabel = new JLabel("Vamos banear");
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblNewLabel.setBounds(46, 45, 145, 42);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Banear");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Interface().setVisible(true);
+				dispose();
+				try {
+				    String usuario = textNombre.getText();
+				    int edad = textEdad.getText();
+				     int peso = textPeso.getText();
+				    int altura = textAltura.getText();
+				    String ubicación = textUbicacion.getText();
+				    Baneado baneado = new Baneado(nombre, edad, altura, peso,ubicacion);
+				    new Controlador().crearBaneado(baneado);
+
+				} catch(Exception error) {
+				JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
+				return;
+				    }
+				}
+			
+		});
+		
+		btnNewButton.setBounds(36, 446, 533, 21);
+		contentPane.add(btnNewButton);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(215, 40, 354, 152);
+		contentPane.add(scrollPane_1);
+		
+		table_7 = new JTable();
+		table_7.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"nombre", "edad", "peso", "altura", "ubicacion"
+			}
+		));
+		scrollPane_1.setViewportView(table_7);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(BanearUsuario.class.getResource("/Recursos/cangrejo_sorpreson.jpg")));
+		lblNewLabel_1.setBounds(37, 123, 154, 67);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("A quien quieres banear, introduce sus datos");
+		lblNewLabel_2.setForeground(Color.RED);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblNewLabel_2.setBounds(46, 215, 503, 42);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Nombre");
+		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_3.setBounds(46, 280, 71, 13);
+		contentPane.add(lblNewLabel_3);
+		
+		textNombre = new JTextField();
+		textNombre.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textNombre.setBackground(Color.LIGHT_GRAY);
+		textNombre.setBounds(127, 276, 96, 19);
+		contentPane.add(textNombre);
+		textNombre.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("Edad");
+		lblNewLabel_4.setForeground(Color.RED);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_4.setBounds(46, 314, 74, 13);
+		contentPane.add(lblNewLabel_4);
+		
+		textEdad = new JTextField();
+		textEdad.setBackground(Color.LIGHT_GRAY);
+		textEdad.setForeground(Color.RED);
+		textEdad.setBounds(127, 312, 96, 19);
+		contentPane.add(textEdad);
+		textEdad.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Altura");
+		lblNewLabel_5.setForeground(Color.RED);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_5.setBounds(44, 384, 45, 13);
+		contentPane.add(lblNewLabel_5);
+		
+		textAltura = new JTextField();
+		textAltura.setBackground(Color.LIGHT_GRAY);
+		textAltura.setForeground(Color.RED);
+		textAltura.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textAltura.setBounds(127, 378, 96, 19);
+		contentPane.add(textAltura);
+		textAltura.setColumns(10);
+		
+		JLabel lblNewLabel_6 = new JLabel("Peso");
+		lblNewLabel_6.setForeground(Color.RED);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_6.setBounds(44, 351, 45, 13);
+		contentPane.add(lblNewLabel_6);
+		
+		textPeso = new JTextField();
+		textPeso.setBackground(Color.LIGHT_GRAY);
+		textPeso.setForeground(Color.RED);
+		textPeso.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textPeso.setBounds(127, 349, 96, 19);
+		contentPane.add(textPeso);
+		textPeso.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Ubicacion");
+		lblNewLabel_7.setForeground(Color.RED);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_7.setBounds(46, 423, 45, 13);
+		contentPane.add(lblNewLabel_7);
+		
+		textUbicacion = new JTextField();
+		textUbicacion.setForeground(Color.RED);
+		textUbicacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textUbicacion.setBackground(Color.LIGHT_GRAY);
+		textUbicacion.setBounds(127, 417, 96, 19);
+		contentPane.add(textUbicacion);
+		textUbicacion.setColumns(10);
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.setIcon(new ImageIcon(BanearUsuario.class.getResource("/Recursos/cangrejoTriston.jpg")));
+		lblNewLabel_8.setBounds(264, 281, 305, 143);
+		contentPane.add(lblNewLabel_8);
+		
+		
+		
+	}
+}

@@ -1,0 +1,83 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+public class Match extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTable table;
+	private JTable table_1;
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
+
+	
+	public Match() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setVisible(true);
+		
+		JButton btnNewButton = new JButton("Usuario 1");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.setBounds(10, 189, 116, 21);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Usuario 2");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton_1.setBounds(10, 220, 116, 21);
+		contentPane.add(btnNewButton_1);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textField.setBounds(156, 191, 116, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textField_1.setBounds(156, 222, 116, 19);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton_2 = new JButton("Match");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Interface().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_2.setBounds(294, 190, 121, 51);
+		contentPane.add(btnNewButton_2);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 163, 393, -81);
+		contentPane.add(scrollPane);
+		
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(413, 166, -401, -69);
+		contentPane.add(scrollPane_1);
+		
+		
+		
+	}
+}

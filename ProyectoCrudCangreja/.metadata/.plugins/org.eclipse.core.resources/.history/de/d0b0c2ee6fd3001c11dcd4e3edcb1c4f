@@ -1,0 +1,15 @@
+package modelo;
+
+import beans.Usuario;
+
+public class Usuarios {
+	
+	public void crearUsuario(Usuario usuario) {
+		String nombre = usuario.getNombre();
+		int edad = usuario.getEdad();
+		int altura = usuario.getAltura();
+		int peso = usuario.getPeso();
+		String ubicacion = usuario.getUbicacion();
+	}
+
+}

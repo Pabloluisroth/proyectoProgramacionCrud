@@ -1,0 +1,161 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import beans.Usuario;
+import controlador.Controlador;
+
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+
+public class Match extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTable table;
+	private JTable table_1;
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
+	private JTable table_2;
+
+	
+	public Match() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 450, 321);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new MatteBorder(2, 0, 0, 0, (Color) Color.LIGHT_GRAY));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setVisible(true);
+		
+		DefaultTableModel dtm = new DefaultTableModel();
+        table = new JTable(dtm);
+        table.setBorder(new LineBorder(Color.RED, 2));
+        table.setBounds(10, 85, 416, 94);
+        contentPane.add(table);
+
+        dtm.addColumn("nombre");
+        dtm.addColumn("edad");
+        dtm.addColumn("peso");
+        dtm.addColumn("altura");
+        dtm.addColumn("ubicacion");
+		
+		JButton btnNewButton = new JButton("Usuario 1");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.setBounds(10, 189, 99, 21);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Usuario 2");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton_1.setBounds(10, 220, 99, 21);
+		contentPane.add(btnNewButton_1);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textField.setBounds(119, 189, 131, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textField_1.setBounds(119, 220, 131, 19);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton_2 = new JButton("Match");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Interface().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_2.setBounds(260, 190, 65, 51);
+		contentPane.add(btnNewButton_2);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(10, 167, 402, -84);
+		contentPane.add(scrollPane_2);
+		
+		table_2 = new JTable();
+		table_2.setBounds(107, 156, 1, 1);
+		contentPane.add(table_2);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Match.class.getResource("/Recursos/cangrejo_izquierda.jpg")));
+		lblNewLabel.setBounds(10, 10, 131, 68);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(Match.class.getResource("/Recursos/cangrejo_derecha.jpg")));
+		lblNewLabel_1.setBounds(274, 10, 131, 68);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Match.class.getResource("/Recursos/corazon.jpg")));
+		lblNewLabel_2.setBounds(156, 10, 106, 68);
+		contentPane.add(lblNewLabel_2);
+		
+		JButton refrescarUsuarios = new JButton("Refrescar");
+		refrescarUsuarios.setForeground(Color.BLACK);
+		refrescarUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		refrescarUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 ArrayList<Usuario> usuarios = new Controlador().refrescarUsuarios();
+	                dtm.getDataVector().removeAllElements();
+	                dtm.fireTableDataChanged();
+
+	                // Montar los datos recogidos en la tabla jejejje
+
+	                for(Usuario usuario : usuarios){
+	                    Object[] fila = new Object[5];
+	                    fila[0] = usuario.getNombre();
+	                    fila[1] = usuario.getEdad();
+	                    fila[2] = usuario.getPeso();
+	                    fila[3] = usuario.getAltura();
+	                    fila[4] = usuario.getUbicacion();
+
+	                    dtm.addRow(fila);
+	                }
+	            }
+	        });	
+				
+		refrescarUsuarios.setBounds(335, 189, 91, 51);
+		contentPane.add(refrescarUsuarios);
+		
+		JButton btnNewButton_3 = new JButton("Regresar interface");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new Interface().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_3.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnNewButton_3.setBounds(10, 253, 416, 21);
+		contentPane.add(btnNewButton_3);
+		
+		
+		
+	}
+}

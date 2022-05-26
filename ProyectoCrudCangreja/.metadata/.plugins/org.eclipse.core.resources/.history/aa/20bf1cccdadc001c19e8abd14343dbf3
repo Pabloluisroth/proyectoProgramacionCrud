@@ -1,0 +1,29 @@
+package controlador;
+
+import java.util.ArrayList;
+import modelo.Baneados;
+import modelo.Likes;
+import vista.verBaneados;
+import vista.verMatch;
+import beans.Baneado;
+import beans.Like;
+
+public class ControladorVentanas {
+
+	public void abrirVerBaneados() {
+		// 1 Recoger los baneados
+		ArrayList<Baneado> baneados = new Baneados().recogerBaneados();
+		// Abrir ventana ver Baneados con los datos
+		new verBaneados(baneados);
+		
+	}
+	
+	public void abrirVerMatch() {
+		// 1 Recoger los likes " match " //
+		ArrayList<Like>likes = new Likes().recogerlikes();
+		// Abrir ventana ver match con los datos
+		new verMatch(likes);
+		
+	}
+
+}

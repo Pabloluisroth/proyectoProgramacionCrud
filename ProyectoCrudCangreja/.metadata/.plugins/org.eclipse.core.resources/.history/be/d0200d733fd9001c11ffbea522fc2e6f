@@ -1,0 +1,86 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+
+	public Login() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Iniciar Sesion");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Interface().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(146, 216, 114, 21);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/Recursos/Cangrejo.jpg")));
+		lblNewLabel.setBounds(280, 84, 156, 81);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Contrase\u00F1a");
+		lblNewLabel_1.setForeground(Color.RED);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(22, 152, 114, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textPane.setForeground(Color.RED);
+		textPane.setBackground(Color.LIGHT_GRAY);
+		textPane.setBounds(146, 146, 114, 19);
+		contentPane.add(textPane);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textField.setForeground(Color.RED);
+		textField.setBackground(Color.LIGHT_GRAY);
+		textField.setBounds(146, 95, 114, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Usuario");
+		lblNewLabel_2.setForeground(Color.RED);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_2.setBounds(22, 99, 69, 13);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Show Cangreja");
+		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		lblNewLabel_3.setBounds(127, 21, 209, 42);
+		contentPane.add(lblNewLabel_3);
+		
+		setVisible(true);
+	}
+}
+

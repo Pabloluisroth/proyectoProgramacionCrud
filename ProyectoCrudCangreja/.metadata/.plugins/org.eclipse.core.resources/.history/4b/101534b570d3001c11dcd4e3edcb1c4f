@@ -1,0 +1,12 @@
+package modelo;
+
+import beans.Login;
+
+public class Logins {
+	
+	public void crearLogin(Login login) {
+		String usuario = login.getUsuario();
+		String contrasena = login.getContrasena();
+	}
+
+}

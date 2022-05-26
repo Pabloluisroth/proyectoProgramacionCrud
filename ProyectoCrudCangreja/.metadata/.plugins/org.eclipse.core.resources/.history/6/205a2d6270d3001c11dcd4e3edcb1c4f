@@ -1,0 +1,14 @@
+package modelo;
+
+import beans.Like;
+
+public class Likes {
+
+	public void crearLike(Like like) {
+		String nombre = like.getNombre();
+		int edad = like.getEdad();
+		int altura = like.getAltura();
+		int peso = like.getPeso();
+		String ubicacion = like.getUbicacion();
+	}
+}

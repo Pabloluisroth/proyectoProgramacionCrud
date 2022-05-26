@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="vista.Interface"/>
+    <fullyQualifiedTypeName name="vista.Introduccionusuario"/>
+    <fullyQualifiedTypeName name="vista.ModificarUsuario"/>
+    <fullyQualifiedTypeName name="vista.BanearUsuario"/>
+    <fullyQualifiedTypeName name="vista.EliminarUsuario"/>
+    <fullyQualifiedTypeName name="vista.Match"/>
+    <fullyQualifiedTypeName name="modelo.Usuarios"/>
+    <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
+    <fullyQualifiedTypeName name="modelo.Logins"/>
+    <fullyQualifiedTypeName name="beans.Login"/>
+    <fullyQualifiedTypeName name="vista.VistaLogin"/>
+    <fullyQualifiedTypeName name="modelo.Baneados"/>
+    <fullyQualifiedTypeName name="beans.Baneado"/>
+    <fullyQualifiedTypeName name="vista.verBaneados"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="controlador.Controlador"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="beans.Usuario"/>
+    <fullyQualifiedTypeName name="javax.swing.event.ListSelectionListener"/>
+    <fullyQualifiedTypeName name="javax.swing.event.ListSelectionEvent"/>
+    <fullyQualifiedTypeName name="vista.verMatch"/>
+    <fullyQualifiedTypeName name="modelo.Likes"/>
+    <fullyQualifiedTypeName name="beans.Like"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+</qualifiedTypeNameHistroy>

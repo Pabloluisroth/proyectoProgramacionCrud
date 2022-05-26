@@ -1,0 +1,18 @@
+package modelo;
+
+import beans.Usuario;
+
+public class Usuarios {
+	
+	public void crearAlumno(Usuario usuario) {
+		String nombre = usuario.getNombre();
+		Date edad = usuario.getEdad();
+		Date altura = usuario.getAltura();
+		Date peso = usuario.getPeso();
+		String ubicacion = usuario.getUbicacion();
+		
+		Conexion.ejecutarUpdate("INSERT INTO alumnos (nombre, fecha_nacimiento) VALUES ('"+nombre+"', '"+fechaNacimiento+"');");
+		
+	}
+
+}

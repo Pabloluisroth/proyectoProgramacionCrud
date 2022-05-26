@@ -1,0 +1,191 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import beans.Usuario;
+import controlador.Controlador;
+
+import java.awt.Color;
+import java.awt.Font;
+
+public class ModificarUsuario extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textNombre;
+	private JTextField textEdad;
+	private JTextField TextAltura;
+	private JTextField textPeso;
+	private JTextField textUbicacion;
+	private JTable table;
+	private JScrollPane scrollPane_2;
+	private JTable table_1;
+	private JLabel lblNewLabel;
+	private JButton refrescarUsuario;
+
+	
+	public ModificarUsuario() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 561, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		setVisible(true);
+		
+		DefaultTableModel dtm = new DefaultTableModel();
+        table = new JTable(dtm);
+        table.setBounds(220, 29, 305, 181);
+        contentPane.add(table);
+
+        dtm.addColumn("nombre");
+        dtm.addColumn("edad");
+        dtm.addColumn("peso");
+        dtm.addColumn("altura");
+        dtm.addColumn("ubicacion");
+		
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nombre");
+		lblNewLabel_1.setForeground(Color.RED);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_1.setBounds(20, 36, 45, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		textNombre = new JTextField();
+		textNombre.setBackground(Color.LIGHT_GRAY);
+		textNombre.setForeground(Color.RED);
+		textNombre.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textNombre.setBounds(100, 33, 96, 19);
+		contentPane.add(textNombre);
+		textNombre.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Edad");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_2.setForeground(Color.RED);
+		lblNewLabel_2.setBounds(20, 71, 45, 13);
+		contentPane.add(lblNewLabel_2);
+		
+		textEdad = new JTextField();
+		textEdad.setBackground(Color.LIGHT_GRAY);
+		textEdad.setForeground(Color.RED);
+		textEdad.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textEdad.setBounds(100, 68, 96, 19);
+		contentPane.add(textEdad);
+		textEdad.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Altura");
+		lblNewLabel_3.setForeground(Color.RED);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_3.setBounds(20, 106, 45, 13);
+		contentPane.add(lblNewLabel_3);
+		
+		TextAltura = new JTextField();
+		TextAltura.setForeground(Color.RED);
+		TextAltura.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		TextAltura.setBackground(Color.LIGHT_GRAY);
+		TextAltura.setBounds(100, 103, 96, 19);
+		contentPane.add(TextAltura);
+		TextAltura.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("Peso");
+		lblNewLabel_4.setForeground(Color.RED);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_4.setBounds(20, 143, 45, 13);
+		contentPane.add(lblNewLabel_4);
+		
+		textPeso = new JTextField();
+		textPeso.setBackground(Color.LIGHT_GRAY);
+		textPeso.setForeground(Color.RED);
+		textPeso.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textPeso.setBounds(100, 140, 96, 19);
+		contentPane.add(textPeso);
+		textPeso.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Ubicacion");
+		lblNewLabel_5.setForeground(Color.RED);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_5.setBounds(20, 188, 45, 13);
+		contentPane.add(lblNewLabel_5);
+		
+		textUbicacion = new JTextField();
+		textUbicacion.setForeground(Color.RED);
+		textUbicacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textUbicacion.setBackground(Color.LIGHT_GRAY);
+		textUbicacion.setBounds(100, 185, 96, 19);
+		contentPane.add(textUbicacion);
+		textUbicacion.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Modificar");
+		btnNewButton.setBounds(100, 220, 96, 21);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Interface().setVisible(true);
+				dispose();
+				
+				try {
+					String nombre = textNombre.getText();
+					int edad =Integer.parseInt(textEdad.getText());
+					int peso =Integer.parseInt(textPeso.getText());
+					int altura =Integer.parseInt(TextAltura.getText());
+					String ubicación = textUbicacion.getText();
+					Usuario usuario = new Usuario(nombre, edad, altura, peso, ubicación);
+					new Controlador().modificarUsuario(usuario);
+
+				} catch(Exception error) {
+					JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
+					return;
+					}
+				}	
+		});
+		
+		contentPane.add(btnNewButton);
+		scrollPane_2.setViewportView(table_1);
+		lblNewLabel = new JLabel("No te dejes ningun dato !!!");
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		lblNewLabel.setBounds(249, 23, 266, 40);
+		contentPane.add(lblNewLabel);
+		
+		refrescarUsuario = new JButton("refrescar");
+		refrescarUsuario.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		            	
+	       ArrayList<Usuario> usuarios = new Controlador().refrescarUsuarios();
+		                dtm.getDataVector().removeAllElements();
+		                dtm.fireTableDataChanged();
+
+		                // Montar los datos recogidos en la tabla
+
+		                for(Usuario usuario : usuarios){
+		                    Object[] fila = new Object[5];
+		                    fila[0] = usuario.getNombre();
+		                    fila[1] = usuario.getEdad();
+		                    fila[2] = usuario.getPeso();
+		                    fila[3] = usuario.getAltura();
+		                    fila[4] = usuario.getUbicacion();
+
+		                    dtm.addRow(fila);
+		                }
+		            }
+		        });
+		setVisible(true);
+	
+		refrescarUsuario.setBounds(327, 220, 85, 21);
+		contentPane.add(refrescarUsuario);
+	}
+}

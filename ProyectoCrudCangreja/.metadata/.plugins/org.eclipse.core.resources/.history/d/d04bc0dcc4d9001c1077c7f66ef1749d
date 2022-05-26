@@ -1,0 +1,98 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JTabbedPane;
+import java.awt.Font;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class EliminarUsuario extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTable table;
+
+
+	public EliminarUsuario() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 770, 371);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setVisible(true);
+		
+		JLabel lblNewLabel = new JLabel("Usuario");
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(61, 55, 110, 13);
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setForeground(Color.LIGHT_GRAY);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		textField.setBounds(35, 78, 141, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Eliminar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Interface().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(35, 184, 142, 21);
+		contentPane.add(btnNewButton);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(215, 51, 511, 154);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setBackground(Color.LIGHT_GRAY);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"Nombre", "Edad", "Peso", "Altura", "Ubicacion"
+			}
+		));
+		scrollPane.setViewportView(table);
+		
+		JLabel lblNewLabel_1 = new JLabel("Estas seguro que deseas desaparecer de show cangreja ?");
+		lblNewLabel_1.setForeground(Color.RED);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		lblNewLabel_1.setBounds(39, 259, 687, 44);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(35, 109, 144, 65);
+		contentPane.add(lblNewLabel_2);
+		
+
+		
+		
+	}
+}
